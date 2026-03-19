@@ -2,15 +2,12 @@ package directory;
 
 import jakarta.persistence.*;
 
-import java.io.Serializable;
-import java.util.Objects;
-
 @Entity
 @Table(schema = "oblig3", name = "prosjekt_deltagelse")
-public class Prosjekt_Deltagelse {
+public class ProsjektDeltagelse {
 
     @EmbeddedId
-    private Prosjekt_Deltagelse id = new Prosjekt_DeltagelseId();
+    private ProsjektDeltagelse id = new ProsjektDeltagelseId();
 
     @ManyToOne
     @MapsId("ansattId")
@@ -29,7 +26,7 @@ public class Prosjekt_Deltagelse {
     private double antallTimer;
 
     // Tom konstruktør (påkrevd av JPA)
-    public ProsjektDeltagelse() {
+    public ProsjektDeltagelse(int ansattId, int prosjektId) {
     }
 
     public ProsjektDeltagelse(Ansatt ansatt, Prosjekt prosjekt, String rolle, double antallTimer) {
@@ -37,7 +34,7 @@ public class Prosjekt_Deltagelse {
         this.prosjekt = prosjekt;
         this.rolle = rolle;
         this.antallTimer = antallTimer;
-        this.id = new ProsjektDeltagelseId(ansatt.getAnsattId(), prosjekt.getProsjektId());
+        this.id = new ProsjektDeltagelse(ansatt.getAnsattId(), prosjekt.getProsjektId());
     }
 
     // Gettere og settere

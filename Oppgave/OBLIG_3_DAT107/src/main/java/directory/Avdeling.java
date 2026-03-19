@@ -1,7 +1,6 @@
 package directory;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,24 +9,22 @@ import java.util.List;
 
 public class Avdeling {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name = "avdelingNr")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JoinColumn(name="avdelingNr")
     private int avdelingNr;
 
     private String avdelingNavn;
 
     @OneToOne
-    @JoinColumn(name = "avdeling", referencedColumnName = "ansattId")
+    @JoinColumn(name="avdeling", referencedColumnName = "ansattId")
     private Ansatt sjef;
 
     @OneToMany(mappedBy = "avdeling")
     private List<Ansatt> ansatte = new ArrayList<>();
 
-    private Avdeling() {
-    }
+    private Avdeling (){}
 
-    private Avdeling(String navn) {
+    private Avdeling (String navn) {
         this.avdelingNavn = navn;
     }
 

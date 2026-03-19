@@ -64,7 +64,7 @@ create table oblig3.PROSJEKT_DELTAGELSE (
 
 );
 
-insert into oblig3.AVDELING(navn)
+insert into AVDELING(navn)
 values
     ('PROGRAMERING'),
     ('REVISOR'),
@@ -73,14 +73,14 @@ values
     ('LONNING'),
     ('KJOKKEN');
 
-insert into oblig3.PROSJEKT(prosjektNavn, prosjektBeskrivelse)
+insert into PROSJEKT(prosjektNavn, prosjektBeskrivelse)
 values ('PROG1', 'Teste programmer i fase 1'),
        ('PROG2', 'Teste programmer i fase 2'),
        ('PROG3', 'Teste programmer i fase 3'),
        ('PROG4', 'Teste programmer i fase 4');
 
 
-insert into oblig3.ANSATT(brukernavn, fornavn, etternavn, ansettelsesDato, stilling, lonnManed, avdeling)
+insert into ANSATT(brukernavn, fornavn, etternavn, ansettelsesDato, stilling, lonnManed, avdeling)
 values
     ('THF', 'Teodor', 'Furelid', '16.04.2016', 'PROGRAMERER', 120_000, 1),
     ('JOH', 'Johanne', 'Berg', '2022-03-15', 'SYSTEMUTVIKLER', 95_000, 1),  -- PROGRAMERING
@@ -96,14 +96,14 @@ values
 
 
 -- Oppdater sjefer for hver avdeling (må gjøres etter at alle ansatte er lagt inn)
-update oblig3.AVDELING set sjef = 2 where avdelingNr = 1;  -- Johanne Berg er sjef for PROGRAMERING
-update oblig3.AVDELING set sjef = 6 where avdelingNr = 2;  -- Sigrid Haugen er sjef for REVISOR
-update oblig3.AVDELING set sjef = 4 where avdelingNr = 3;  -- Petter Ås er sjef for TESTER
-update oblig3.AVDELING set sjef = 8 where avdelingNr = 4;  -- Ida Solberg er sjef for REDAKTØR
-update oblig3.AVDELING set sjef = 10 where avdelingNr = 5; -- Marte Kvam er sjef for LONNING
-update oblig3.AVDELING set sjef = 11 where avdelingNr = 6; -- Are Sæther er sjef for KJOKKEN
+update AVDELING set sjef = 2 where avdelingNr = 1;  -- Johanne Berg er sjef for PROGRAMERING
+update AVDELING set sjef = 6 where avdelingNr = 2;  -- Sigrid Haugen er sjef for REVISOR
+update AVDELING set sjef = 4 where avdelingNr = 3;  -- Petter Ås er sjef for TESTER
+update AVDELING set sjef = 8 where avdelingNr = 4;  -- Ida Solberg er sjef for REDAKTØR
+update AVDELING set sjef = 10 where avdelingNr = 5; -- Marte Kvam er sjef for LONNING
+update AVDELING set sjef = 11 where avdelingNr = 6; -- Are Sæther er sjef for KJOKKEN
 
-insert into oblig3.PROSJEKT_DELTAGELSE (ansattId, prosjekId, rolle, antallTimer)
+insert into PROSJEKT_DELTAGELSE (ansattId, prosjekId, rolle, antallTimer)
 values (1, 4, 'Prosjektleder', 10),
        (2, 4, 'ProsjektDeltager', 25),
        (3, 4, 'ProsjektDeltager', 8),
