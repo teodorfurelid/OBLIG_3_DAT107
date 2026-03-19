@@ -9,7 +9,8 @@ import java.util.List;
 
 public class Ansatt {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ansattId;
 
     private String brukernavn;
@@ -20,13 +21,14 @@ public class Ansatt {
     private double lonnMande;
 
     @ManyToOne
-    @JoinColumn(name="avdeling", referencedColumnName="avdelingNr")
+    @JoinColumn(name = "avdeling", referencedColumnName = "avdelingNr")
     private Avdeling avdeling;
 
     @OneToMany(mappedBy = "ansatt")
     public List<Prosjekt_Deltagelse> prosjekter;
 
-    public Ansatt (){}
+    public Ansatt() {
+    }
 
     public Ansatt(int ansattId, String brukernavn, String fornavn, String etternavn,
                   String ansattDato, double lonnMande, Avdeling avdeling) {
